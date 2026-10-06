@@ -1,0 +1,15 @@
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, sans-serif; background: #f3f5f9; color: #1c2333; }
+.auth-page { min-height: 100vh; display: grid; place-items: center; padding: 16px; }
+.card { background: #fff; padding: 24px; border-radius: 8px; border: 1px solid #d9dfeb; width: 100%; max-width: 380px; display: flex; flex-direction: column; gap: 8px; }
+label { font-size: 14px; }
+input { padding: 10px; border: 1px solid #b9c2d6; border-radius: 6px; font-size: 16px; }
+button { padding: 10px 14px; border: 0; border-radius: 6px; background: #2b4acb; color: #fff; font-size: 14px; cursor: pointer; }
+button.secondary { background: #e3e8f4; color: #1c2333; }
+button.danger { background: #c62f2f; }
+.error { color: #c62f2f; margin: 0; font-size: 14px; }
+.dashboard { max-width: 800px; margin: 0 auto; padding: 16px; }
+.dashboard header, .toolbar, .row { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.student-form { max-width: 100%; margin-bottom: 16px; }
+table { width: 100%; border-collapse: collapse; background: #fff; display: block; overflow-x: auto; }
+th, td { padding: 10px; border: 1px solid #d9dfeb; text-align: left; white-space: nowrap; }

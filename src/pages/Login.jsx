@@ -1,0 +1,33 @@
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { getUsers, setCurrentUser } from "../utils/storage.js";
+
+export default function Login() {
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const user = getUsers().find((u) => u.email === email && u.password === password);
+    if (!user) return setError("Wrong email or password.");
+    setCurrentUser({ name: user.name, email: user.email });
+    navigate("/");
+  };
+
+  return (
+    <div className="auth-page">
+      <form className="card" onSubmit={handleSubmit}>
+        <h2>Login</h2>
+        {error && <p className="error">{error}</p>}
+        <label>Email *</label>
+        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+        <label>Password *</label>
+        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+        <button type="submit">Log in</button>
+        <p>New here? <Link to="/register">Create an account</Link></p>
+      </form>
+    </div>
+  );
+}
